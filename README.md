@@ -1,2 +1,2 @@
-# calculator
-A simple calculator app
+# to-do
+A simple to-do app.
