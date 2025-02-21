@@ -9,7 +9,7 @@ jobs:
       max-parallel: 4
       matrix:
         python-version: ["3.12", "3.13", "3.14"]
-        poetry-version: ["latest", "main", "1.8.4"]
+        poetry-version: ["2.1.1"]
 
     steps:
       - uses: actions/checkout@v4
