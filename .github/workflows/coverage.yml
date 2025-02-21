@@ -30,10 +30,16 @@ jobs:
       run: |
         pipx install poetry
 
-    - name: Run Tests
+    - name: Install Python Dependencies
       run: |
         poetry install
+
+    - name: Run Migrations
+      run: |
         python manage.py migrate
+
+    - name: Run Tests
+      run: |
         pytest --cov-branch --cov-report=xml
 
     - name: Upload coverage reports to Codecov
