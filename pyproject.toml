@@ -13,15 +13,15 @@ license = {text = "MIT"}
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    django>=4.2,<5.0,
-    pytest==8.3.4,
-    pytest-django==4.10.0,
-    pytest-cov==6.0.0,
-    coverage==7.6.12,
-    python-dotenv==1.0.1,
-    pytest-dotenv==0.5.2,
-    ruff==0.9.7,
-    selenium==4.29.0,
+    "django (>=4.2,<5.0)",
+    "pytest (==8.3.4)",
+    "pytest-django (==4.10.0)",
+    "pytest-cov (==6.0.0)",
+    "coverage (==7.6.12)",
+    "python-dotenv (==1.0.1)",
+    "pytest-dotenv (==0.5.2)",
+    "ruff (==0.9.7)",
+    "selenium (==4.29.0)",
 ]
 
 [build-system]
