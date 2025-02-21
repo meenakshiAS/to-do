@@ -1,4 +1,4 @@
-[project]
+[tool.poetry]
 name = "app"
 version = "0.1.0"
 description = "A to-do app."
