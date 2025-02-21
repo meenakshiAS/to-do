@@ -3,7 +3,11 @@ name = "to-do"
 version = "0.1.0"
 description = "A to-do app."
 authors = [
+<<<<<<< HEAD
     {name = "Jammithri",email = "kjam0045@mail.com"}
+=======
+    {name = "payel",email = "payelmahapatra8693@gmail.com"}
+>>>>>>> 9e80185451f0772978b81637df4e6e9a848eb708
     {name = "Anna Makarudze",email = "anna@makarudze.com"}
 ]
 license = {text = "MIT"}
