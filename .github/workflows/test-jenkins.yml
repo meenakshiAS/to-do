@@ -1,0 +1,23 @@
+{{- if .Values.controller.testEnabled }}
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ .Release.Name }}-python-test-{{ randAlphaNum 5 | lower }}"
+  namespace: {{ template "jenkins.namespace" . }}
+  annotations:
+    "helm.sh/hook": test-success
+spec:
+  containers:
+    - name: {{ .Release.Name }}-python-test
+      image: "{{ .Values.controller.image.registry }}/{{ .Values.controller.image.repository }}:{{- include "controller.image.tag" . -}}"
+      command: ["python", "-m", "unittest", "discover", "/tests"]
+      volumeMounts:
+      - mountPath: /tests
+        name: tests
+        readOnly: true
+  volumes:
+  - name: tests
+    configMap:
+      name: {{ template "jenkins.fullname" . }}-tests
+  restartPolicy: Never
+{{- end }}
