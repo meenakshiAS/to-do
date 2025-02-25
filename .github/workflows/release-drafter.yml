@@ -1,47 +1,23 @@
-name-template: $NEXT_MINOR_VERSION
-tag-template: $NEXT_MINOR_VERSION
-version-template: $MAJOR.$MINOR
+name: Release Drafter
 
-categories:
-  - title: "🐛 Bug fixes"
-    labels:
-      - bug
-      - fix
-      - bugfix
-  - title: "🚀 New features and improvements"
-    labels:
-      - enhancement
-      - feature
-  - title: "📝 Documentation updates"
-    labels:
-      - documentation
-  - title: "🚦 Tests"
-    labels:
-      - test
-      - tests
-  - title: "👻 Maintenance"
-    labels:
-      - chore
-      - internal
-      - maintenance
+on:
+  push:
+    branches:
+      - main
+  
+  pull_request:
+    types: [opened, reopened, synchronize]
 
-exclude-labels:
-  - reverted
-  - no-changelog
-  - skip-changelog
+permissions:
+  contents: read
 
-template: |
-  $CHANGES
-
-autolabeler:
-  - label: "documentation"
-    files:
-      - "*.md"
-  - label: "bug"
-    branch:
-      - "/fix\/.+/"
-    title:
-      - "/fix/i"
-  - label: "enhancement"
-    branch:
-      - "/feature\/.+/"
+jobs:
+  update_release_draft:
+    permissions:
+      contents: write  
+      pull-requests: write 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: release-drafter/release-drafter@v6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
