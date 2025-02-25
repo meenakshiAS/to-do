@@ -6,24 +6,8 @@ updates:
       interval: weekly
     ignore:
       - dependency-name: "*github-script*"
-
   - package-ecosystem: docker
     directory: "./dockerfiles"
-    schedule:
-      interval: weekly
-    open-pull-requests-limit: 10
-  - package-ecosystem: docker
-    directory: "./dockerfiles/maven"
-    schedule:
-      interval: weekly
-    open-pull-requests-limit: 10
-  - package-ecosystem: docker
-    directory: "./dockerfiles/multi"
-    schedule:
-      interval: weekly
-    open-pull-requests-limit: 10
-  - package-ecosystem: docker
-    directory: "./dockerfiles/node"
     schedule:
       interval: weekly
     open-pull-requests-limit: 10
@@ -32,11 +16,6 @@ updates:
     schedule:
       interval: weekly
     open-pull-requests-limit: 10
-  - package-ecosystem: docker
-    directory: "./dockerfiles/sidekick"
-    schedule:
-      interval: weekly
-    open-pull-requests-limit: 10    
   - package-ecosystem: docker
     directory: "./dockerfiles/agent-discovery"
     schedule:
