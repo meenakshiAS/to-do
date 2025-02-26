@@ -25,7 +25,6 @@ jobs:
 
       - name: Setup a local virtual environment
         run: |
-          cd to-do
           poetry config virtualenvs.create true --local
           poetry config virtualenvs.in-project true --local
       - uses: actions/cache@v3
@@ -34,7 +33,9 @@ jobs:
           path: ./.venv
           key: venv-${{ hashFiles('poetry.lock') }}
       - name: Install the project dependencies
-        run: poetry install
+        run: |
+          cd to-do
+          poetry install
       - name: Run Migrations
         run: |
           poetry run python manage.py migrate
