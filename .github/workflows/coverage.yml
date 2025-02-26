@@ -38,9 +38,11 @@ jobs:
           poetry install
       - name: Run Migrations
         run: |
+          cd to-do
           poetry run python manage.py migrate
       - name: Run the automated tests (for example)
         run: | 
+          cd to-do
           poetry run pytest --cov-branch --cov-report=xml
     
       - name: Upload coverage reports to Codecov
