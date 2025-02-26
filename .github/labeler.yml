@@ -6,11 +6,11 @@ controller:
   - changed-files:
       - any-glob-to-any-file: 'dockerfiles/Dockerfile/**'
 
-python_project:
+app:
   - changed-files:
       - any-glob-to-any-file: 'dockerfiles/python/**'
 
-test:
+coverage:
   - changed-files:
       - any-glob-to-any-file: '.github/workflows/coverage.yml'
 
