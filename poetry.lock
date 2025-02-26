@@ -219,14 +219,14 @@ toml = ["tomli ; python_full_version <= \"3.11.0a6\""]
 
 [[package]]
 name = "django"
-version = "4.2"
+version = "4.2.19"
 description = "A high-level Python web framework that encourages rapid development and clean, pragmatic design."
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
 files = [
-    {file = "Django-4.2-py3-none-any.whl", hash = "sha256:ad33ed68db9398f5dfb33282704925bce044bef4261cd4fb59e4e7f9ae505a78"},
-    {file = "Django-4.2.tar.gz", hash = "sha256:c36e2ab12824e2ac36afa8b2515a70c53c7742f0d6eaefa7311ec379558db997"},
+    {file = "Django-4.2.19-py3-none-any.whl", hash = "sha256:a104e13f219fc55996a4e416ef7d18ab4eeb44e0aa95174c192f16cda9f94e75"},
+    {file = "Django-4.2.19.tar.gz", hash = "sha256:6c833be4b0ca614f0a919472a1028a3bbdeb6f056fa04023aeb923346ba2c306"},
 ]
 
 [package.dependencies]
@@ -642,4 +642,4 @@ h11 = ">=0.9.0,<1"
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.12"
-content-hash = "a69b283bc8241e06fc0df39e5d40a6fd65399c1aa067f55b743481d34a39696e"
+content-hash = "893c5ba5cd98ab25e3a86aef69a11f33dacd6c4a357879ad7d755ff9ec52673a"
