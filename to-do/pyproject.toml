@@ -24,3 +24,27 @@ dependencies = [
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "N",  # PEP8 naming convetions
+    "D"  # pydocstyle
+]
+ignore = [
+    "C901",  # too complex
+    "W191",  # indentation contains tabs
+    "D401",  # imperative mood
+    "D415", #missing docstring in public package
+    "D104",
+    "D100",
+    "D103"
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
