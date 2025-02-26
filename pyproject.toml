@@ -1,5 +1,5 @@
 [project]
-name = "app"
+name = "to-do"
 version = "0.1.0"
 description = "A to-do app."
 authors = [
