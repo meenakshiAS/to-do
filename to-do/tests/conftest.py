@@ -1,5 +1,4 @@
 import pytest
-
 from django.contrib.auth.models import User
 from django.test import Client
 
@@ -16,10 +15,10 @@ def client(db):
 def admin(db):
     """Fixture to create an admin user."""
     user = User.objects.create_superuser(
-        username="carl", 
-        email="carl@test.com", 
-        first_name="Carl", 
-        last_name="Doe", 
+        username="carl",
+        email="carl@test.com",
+        first_name="Carl",
+        last_name="Doe",
         password="pass1234"
     )
     return user
@@ -32,6 +31,6 @@ def task(db, admin):
         description="A to do app.",
         due_date="2025-03-01",
         completed=False
-        
+
     )
     return task

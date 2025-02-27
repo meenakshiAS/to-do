@@ -1,5 +1,5 @@
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
 
 
 class Task(models.Model):
@@ -10,7 +10,9 @@ class Task(models.Model):
     completed = models.BooleanField(default=False)
 
     class Meta:
+        """Metadata options for the Task model."""
         managed = True
 
     def __str__(self) -> str:
+        """Return the string representation of the task."""
         return self.title
