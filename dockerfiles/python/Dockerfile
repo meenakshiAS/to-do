@@ -10,9 +10,8 @@ RUN python3 -m venv /opt/venv
 
 ENV PATH="/opt/venv/bin:$PATH"
 
-RUN pip install docker-py feedparser nosexcover prometheus_client pycobertura pylint pytest pytest-cov requests setuptools sphinx pyinstaller poetry
+RUN pip install docker-py feedparser nosexcover prometheus_client pycobertura pylint pytest pytest-cov requests setuptools sphinx pyinstaller
 
 RUN echo "PATH=${PATH}" >> /etc/environment
 
 RUN chown -R jenkins:jenkins "${JENKINS_AGENT_HOME}"
-
