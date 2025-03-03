@@ -3,7 +3,10 @@ name = "app"
 version = "0.1.0"
 description = "A simple to-do app."
 authors = [
-    {name = "Anna Makarudze",email = "anna@makarudze.com"}
+    {name = "Anna Makarudze",email = "amakarudze@gmail.com"},
+    {name = "Payel Mahapatra",email = "payelmahapatra8693@gmail.com"},
+    {name = "Jammithri Kotapati",email = "kjam0045@gmail.com"},
+    {name = "Meenakshi Arrakal Sudesh",email = "meenakshias1995@gmail.com"}
 ]
 license = {text = "MIT"}
 readme = "README.md"
@@ -51,3 +54,7 @@ ignore = [
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
