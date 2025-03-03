@@ -14,7 +14,7 @@ jobs:
     timeout-minutes: 30
 
     env:
-      GITHUB_USERNAME: gounthar # Used to be ${{ github.repository_owner }}, but the jenkins-docs repository does not have a Jenkinsfile.
+      GITHUB_USERNAME: ${{ github.repository_owner }} # Used to be ${{ github.repository_owner }}, but the jenkins-docs repository does not have a Jenkinsfile.
       DOCKERHUB_USERNAME: ${{ github.repository_owner }}
       IMAGE_PREFIX: ghcr.io
       BRANCH_SUFFIX: clean-up
@@ -26,7 +26,7 @@ jobs:
 
       - name: Set Sample Tutorial Repository URL
         run: |
-          echo "PARTIAL_REPO_URL=${GITHUB_USERNAME}/to-do" >> $GITHUB_ENV
+          echo "PARTIAL_REPO_URL=${GITHUB_USERNAME}/" >> $GITHUB_ENV
           echo "GITHUB_ENV is $GITHUB_ENV"
           echo "REPO_URL is $REPO_URL"
         shell: bash
