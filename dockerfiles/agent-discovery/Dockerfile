@@ -1,4 +1,4 @@
-FROM debian:bookworm-20250203-slim as prepare-stage
+FROM debian:bookworm-20250224-slim as prepare-stage
 
 COPY *sh /usr/local/bin/
 
