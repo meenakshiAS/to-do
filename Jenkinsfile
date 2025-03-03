@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('BuildStage') {
             steps {
                 sh 'curl -sSL https://install.python-poetry.org | python3;export PATH="$HOME/.local/bin:$PATH";poetry --version;poetry run python3 -m build'
                 stash(name: 'compiled-results', includes: 'to-do/*.py*')
