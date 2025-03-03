@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'curl -sSL https://install.python-poetry.org | python3;export PATH="$HOME/.local/bin:$PATH";poetry --version;pip install build;poetry run python3 -m build'
+                sh 'curl -sSL https://install.python-poetry.org | python3;export PATH="$HOME/.local/bin:$PATH";poetry --version;pip3 install build;poetry run python3 -m build'
                 stash(name: 'compiled-results', includes: 'to-do/*.py*')
             }
         }
