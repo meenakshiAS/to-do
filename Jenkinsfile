@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'cd to-do'
-                sh 'pip install poetry'
+                sh 'pip install --user poetry'
                 sh 'poetry run python3 -m build'
                 stash(name: 'compiled-results', includes: 'to-do/*.py*')
             }
