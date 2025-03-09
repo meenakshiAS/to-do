@@ -26,6 +26,9 @@ SECRET_KEY = "chores" if DEBUG else os.environ.get("SECRET_KEY")
 
 ALLOWED_HOSTS = []
 
+if DEBUG:
+    ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -123,3 +126,6 @@ STATIC_URL = "/static/"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/accounts/login/"

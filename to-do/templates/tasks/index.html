@@ -1,11 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
-<body>
-    
-</body>
-</html>
+{% extends "tasks/base.html" %}
+
+{% block content %}
+    <h1>Task List</h1>
+
+    {% for task in task_list %}
+    <div class="card" style="width: 50rem;">
+        <div class="card-body">
+            <a href="{% url 'tasks:task' task.id %}" class="card-link"><h5 class="card-title">{{ task.title }}</h5></a>
+            <h6 class="card-subtitle mb-2 text-body-secondary">{{ task.due_date }}</h6>
+            <p class="card-text">Task status is {% if task.completed %} completed {% else %} in progress. {% endif %}</p>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}
