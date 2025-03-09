@@ -17,10 +17,17 @@ def test_view_task(chrome_browser, user, task):
     time.sleep(1)
     login_button = chrome_browser.find_element(By.ID, 'login')
     login_button.click()
-    time.sleep(3)
+    time.sleep(1)
 
     header_text = chrome_browser.find_element(By.TAG_NAME, 'h1').text
     assert header_text == 'Task List'
+
+    card_link = chrome_browser.find_element(By.LINK_TEXT, 'Brainstorming')
+    card_link.click()
+    time.sleep(1)
+    page_heading = header_text = chrome_browser.find_element(By.TAG_NAME, 'h2').text
+    assert page_heading == "Brainstorming"
+
 
 
 

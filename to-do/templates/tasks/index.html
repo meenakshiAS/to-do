@@ -1,5 +1,15 @@
 {% extends "tasks/base.html" %}
 
 {% block content %}
-<h1>Task List</h1>
+    <h1>Task List</h1>
+
+    {% for task in task_list %}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <a href="{% url 'tasks:task' task.id %}" class="card-link"><h5 class="card-title">{{ task.title }}</h5></a>
+            <h6 class="card-subtitle mb-2 text-body-secondary">{{ task.due_date }}</h6>
+            <p class="card-text">Status is {{ task.completed }}</p>
+        </div>
+    </div>
+    {% endfor %}
 {% endblock %}
