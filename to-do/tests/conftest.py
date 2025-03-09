@@ -1,8 +1,6 @@
 import pytest
 from django.contrib.auth.models import User
-
 from selenium import webdriver
-
 
 from tasks.models import Task
 

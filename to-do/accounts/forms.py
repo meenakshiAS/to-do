@@ -25,5 +25,6 @@ class LoginForm(AuthenticationForm):
     )
 
     class Meta:
+        """Model and field information"""
         model = User
         fields = ["username", "password"]

@@ -18,7 +18,7 @@ def test_view_task(chrome_browser, user, task):
     login_button = chrome_browser.find_element(By.ID, 'login')
     login_button.click()
     time.sleep(3)
-    
+
     header_text = chrome_browser.find_element(By.TAG_NAME, 'h1').text
     assert header_text == 'Task List'
 
