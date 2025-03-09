@@ -17,65 +17,21 @@ def test_view_task(chrome_browser, user, task):
     time.sleep(1)
     login_button = chrome_browser.find_element(By.ID, 'login')
     login_button.click()
-    time.sleep(3)
+    time.sleep(1)
 
+    # Check if user is redirected to homepage
     header_text = chrome_browser.find_element(By.TAG_NAME, 'h1').text
     assert header_text == 'Task List'
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    """
-    join_link = chrome_browser.find_element(By.LINK_TEXT, 'JOIN IEEE')
-    join_link.click()
-    header_text = chrome_browser.find_element(By.TAG_NAME, 'h1').text
-    assert header_text == 'Learn About IEEE Membership'
-     # type in text
-    signup_link = chrome_browser.find_element(By.LINK_TEXT, 'Sign up')
-    signup_link.click()
-    time.sleep(5)
-    first_name_input = chrome_browser.find_element(By.ID, 'FirstName')
-    first_name_input.send_keys('Jane')
+    # View individual task
+    card_link = chrome_browser.find_element(By.LINK_TEXT, 'Brainstorming')
+    card_link.click()
     time.sleep(1)
-    last_name_input = chrome_browser.find_element(By.ID, 'LastName')
-    last_name_input.send_keys('Doe')
+    page_heading = header_text = chrome_browser.find_element(By.TAG_NAME, 'h2').text
+    assert page_heading == "Brainstorming"
+
+    # Logout user
+    logout_button = chrome_browser.find_element(By.ID, 'logout')
+    logout_button.click()
     time.sleep(1)
-    email_input = chrome_browser.find_element(By.CLASS_NAME, 'Email')
-    email_input.send_keys('janedoe@test.com')
-    time.sleep(1)
-    policy_check = chrome_browser.find_element(By.LINK_TEXT, 'IEEE Privacy Policy:')
-    policy_check.click()
-    submit_button = chrome_browser.find_element(By.TAG_NAME, 'button')
-    submit_button.click()
-    time.sleep(1)
-    confirmation = chrome_browser.find_element(By.TAG_NAME, 'strong').text
-    assert confirmation == 'Subscription Confirmation'
-    time.sleep(1)
-    """
+    assert "Login" in chrome_browser.title
