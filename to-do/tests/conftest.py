@@ -16,7 +16,7 @@ def chrome_browser(live_server, transactional_db):
 
 @pytest.fixture
 def user(db):
-    """Fixture to create an admin user."""
+    """Fixture to create a user."""
     user = User.objects.create_user(
         username="carl",
         email="carl@test.com",
@@ -25,6 +25,12 @@ def user(db):
         password="pass1234"
     )
     return user
+
+
+@pytest.fixture
+def user_client(client, user):
+    client.force_login(user)
+    return client
 
 
 @pytest.fixture
@@ -38,3 +44,14 @@ def task(db, user):
 
     )
     return task
+
+
+@pytest.fixture
+def task_form_valid(db, user):
+    return {
+        "user": user.id,
+        "title":"Brainstorming",
+        "description": "A to do app.",
+        "due_date": "2025-03-01",
+        "completed": False
+    }
