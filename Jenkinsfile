@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('BuildStage') {
+        stage('Build') {
             steps {
                 sh 'python3 -m build'
                 stash(name: 'compiled-results', includes: 'to-do/*.py*')

@@ -1,5 +1,5 @@
 [project]
-name = "app"
+name = "to-do/app"
 version = "0.1.0"
 description = "A simple to-do app."
 authors = [
@@ -10,7 +10,7 @@ authors = [
 ]
 license = {text = "MIT"}
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.12"
 dependencies = [
     "django (==4.2)",
     "pytest (>=8.3.4,<9.0.0)",
