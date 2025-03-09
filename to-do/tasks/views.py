@@ -3,11 +3,13 @@ from django.shortcuts import redirect, render
 
 
 from tasks.forms import TaskForm
+from .models import Task
 
 
 @login_required
 def home(request):
-    return render(request, "tasks/index.html", {"title": "Home"})
+    task_list = Task.objects.filter(user=request.user)
+    return render(request, "tasks/index.html", {"title": "Home", "task_list": task_list})
 
 
 @login_required
@@ -27,3 +29,9 @@ def create_task(request):
         "tasks/create_task.html",
         {"form": form, "title": "Create Task"},
     )
+
+
+@login_required
+def view_task(request, id):
+    task_details = Task.objects.get(id=id)
+    return render(request, "tasks/task.html", {"title": "Task", "task": task_details})
