@@ -22,7 +22,7 @@ def user(db):
         email="carl@test.com",
         first_name="Carl",
         last_name="Doe",
-        password="pass1234"
+        password="pass1234",
     )
     return user
 
@@ -40,8 +40,7 @@ def task(db, user):
         title="Brainstorming",
         description="A to do app.",
         due_date="2025-03-01",
-        completed=False
-
+        completed=False,
     )
     return task
 
@@ -50,8 +49,22 @@ def task(db, user):
 def task_form_valid(db, user):
     return {
         "user": user.id,
-        "title":"Brainstorming",
+        "title": "Brainstorming",
         "description": "A to do app.",
         "due_date": "2025-03-01",
-        "completed": False
+        "completed": False,
     }
+
+
+@pytest.fixture
+def register_user_valid(db):
+    """Fixture for registering a user"""
+    form = {
+        "username": "Jane",
+        "email": "jane@gmail.com",
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "password1": "abc",
+        "password2": "abc",
+    }
+    return form
