@@ -1,19 +1,13 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
-            steps {
-                sh 'poetry run python3 -m build'
-                stash(name: 'compiled-results', includes: 'to-do/*.py*')
-            }
-        }
         stage('Test') {
             steps {
-                sh 'poetry run pytest --junit-xml test-reports/results.xml test ./to-do'
+                sh 'python3 -m pytest --cov-report term --cov-report xml:coverage.xml --cov=to-do'
             }
             post {
                 always {
-                    junit 'test-reports/results.xml'
+                    junit 'test-reports/results.xml', skipPublishingChecks: true
                 }
             }
 

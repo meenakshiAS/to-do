@@ -3,15 +3,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'cd to-do'
-                sh 'poetry run python3 -m build'
+                sh 'python3 -m build'
                 stash(name: 'compiled-results', includes: 'to-do/*.py*')
             }
         }
         stage('Test') {
             steps {
-                sh 'cd to-do'
-                sh 'poetry run pytest --junit-xml test-reports/results.xml test ./to-do'
+                sh 'pytest --junit-xml test-reports/results.xml test ./to-do'
             }
             post {
                 always {

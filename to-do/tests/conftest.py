@@ -1,14 +1,17 @@
 import pytest
 from django.contrib.auth.models import User
-from django.test import Client
+from selenium import webdriver
 
 from tasks.models import Task
 
 
 @pytest.fixture
-def client(db):
-    client = Client()
-    return client
+def chrome_browser(live_server, transactional_db):
+    driver = webdriver.Chrome()
+    driver.server_url = live_server.url
+    driver.implicitly_wait(10)
+    yield driver
+    driver.quit()
 
 
 @pytest.fixture

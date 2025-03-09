@@ -108,7 +108,7 @@ jobs:
           push: true
           tags: ghcr.io/${{ env.REPO_NAME }}/jenkinsci-tutorials:simple_controller_${{ env.BRANCH }}
 
-      - name: Build and push the jenkins agent for python tutorial
+      - name: Build and push the jenkins agent for python code
         if: contains(env.files, 'dockerfiles/python/Dockerfile')
         uses: docker/build-push-action@v6
         with:

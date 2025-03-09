@@ -17,7 +17,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Run image
-        uses: abatilo/actions-poetry@v3
+        uses: abatilo/actions-poetry@v4
         with:
           poetry-version: ${{ matrix.poetry-version }}
       - name: View poetry --help
@@ -27,7 +27,7 @@ jobs:
         run: |
           poetry config virtualenvs.create true --local
           poetry config virtualenvs.in-project true --local
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         name: Define a cache for the virtual environment based on the dependencies lock file
         with:
           path: ./.venv
@@ -36,6 +36,11 @@ jobs:
         run: |
           cd to-do
           poetry install
+      - name: Prepare Selenium
+        uses: nanasess/setup-chromedriver@v1.0.5
+      - name: Start XVFB
+        run: |
+          Xvfb :99 &
       - name: Run Migrations
         run: |
           cd to-do

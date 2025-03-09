@@ -15,4 +15,3 @@ RUN pip install docker-py feedparser nosexcover prometheus_client pycobertura py
 RUN echo "PATH=${PATH}" >> /etc/environment
 
 RUN chown -R jenkins:jenkins "${JENKINS_AGENT_HOME}"
-
