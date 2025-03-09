@@ -26,6 +26,9 @@ SECRET_KEY = "chores" if DEBUG else os.environ.get("SECRET_KEY")
 
 ALLOWED_HOSTS = []
 
+if DEBUG:
+    ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+
 # Application definition
 
 INSTALLED_APPS = [
