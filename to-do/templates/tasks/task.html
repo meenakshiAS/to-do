@@ -11,6 +11,7 @@
         <p class="card-text">{{ task.description }}</p>
         <p class="card-text">Task status is {% if task.completed %} completed {% else %} in progress. {% endif %}</p>
         <a href="#" class="card-link">Edit task</a>
+        <a href="{% url 'tasks:delete_task' task.id %}">Delete Task</a>
     </div>
 </div>
 
