@@ -10,7 +10,7 @@
             {% endfor %}
         </ul>
    {% endif %}
-   <form class="container" method="post" action="{% url 'tasks:create_task' %}">
+   <form class="container" method="post" action="{% url 'tasks:update_task' %}">
         {% csrf_token %}
         <div class="form-group mb-4">
             <h2 class="form-title">>{{ title }}</h2>
@@ -39,8 +39,7 @@
         {% endif %}
 
         <div class="d-grid gap-2 d-md-block">
-            <button class="btn btn-primary" type="submit">Create</button>
-            <button class="btn btn-primary" type="button">Clear</button>
+            <button class="btn btn-primary" type="submit">Update</button>
         </div>
     </form>
 </div>
