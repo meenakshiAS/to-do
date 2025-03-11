@@ -46,6 +46,18 @@ def task(db, user):
 
 
 @pytest.fixture
+def task_2(db, user):
+    task = Task.objects.create(
+        user=user,
+        title="Documentation",
+        description="Documentation for a to do app.",
+        due_date="2025-03-01",
+        completed=False,
+    )
+    return task
+
+
+@pytest.fixture
 def task_form_valid(db, user):
     return {
         "user": user.id,
