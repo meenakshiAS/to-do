@@ -35,6 +35,7 @@ def test_delete_task(chrome_browser, user, task_2):
 
     # Logout user
     logout_button = chrome_browser.find_element(By.ID, "logout")
+    time.sleep(3)
     logout_button.click()
     time.sleep(1)
     assert "Login" in chrome_browser.title
