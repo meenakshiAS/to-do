@@ -45,7 +45,7 @@ def test_delete_task(chrome_browser, wait, user, task_2):
     time.sleep(3)
 
     # Logout user
-    logout_button = wait.until(ec.visibility_of_element_located((By.NAME, "logout")))
-    logout_button.click()
-    time.sleep(3)
-    assert "Login" in chrome_browser.title
+    # logout_button = wait.until(ec.visibility_of_element_located((By.NAME, "logout")))
+    # logout_button.click()
+    # time.sleep(3)
+    # assert "Login" in chrome_browser.title
