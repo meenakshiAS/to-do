@@ -1,11 +1,11 @@
 import time
 
-import pytest
+# import pytest
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 
 
-@pytest.mark.skip
+# pytest.mark.skip
 def test_view_task(chrome_browser, user, task, wait):
     # Get Homepage
     chrome_browser.get("http://127.0.0.1:8005")
@@ -20,7 +20,7 @@ def test_view_task(chrome_browser, user, task, wait):
     password_input.send_keys("pass1234")
     time.sleep(3)
 
-    login_button = wait.until(ec.visibility_of_element_located((By.ID, "login")))
+    login_button = wait.until(ec.visibility_of_element_located((By.NAME, "login")))
     login_button.click()
     time.sleep(3)
 
@@ -40,10 +40,10 @@ def test_view_task(chrome_browser, user, task, wait):
         ec.visibility_of_element_located((By.TAG_NAME, "h2"))
     ).text
     assert page_heading == "Brainstorming"
-    time.sleep(3)
+    time.sleep(20)
 
     # Logout user
-    logout_button = wait.until(ec.visibility_of_element_located((By.ID, "logout")))
+    logout_button = wait.until(ec.visibility_of_element_located((By.NAME, "logout")))
     logout_button.click()
     time.sleep(3)
 
