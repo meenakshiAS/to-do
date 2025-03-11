@@ -3,10 +3,12 @@ import uuid
 
 import pytest
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support import expected_conditions as ec
 
 
 @pytest.mark.skip
-def test_register_user(chrome_browser, user):
+def test_register_user(chrome_browser, wait, user):
     # Open the register page to test
     chrome_browser.get("http://127.0.0.1:8005/accounts/register")
     assert "register" in chrome_browser.title
@@ -33,7 +35,10 @@ def test_register_user(chrome_browser, user):
     password2 = chrome_browser.find_element(By.ID, "password2")
     password2.send_keys("Test@12345678")
     time.sleep(1)
-    register_button = chrome_browser.find_element(By.ID, "register")
+    password1.send_keys(Keys.PAGE_DOWN)
+    password1.send_keys(Keys.PAGE_DOWN)
+    register_button = wait.until(ec.visibility_of_element_located((By.ID, "register")))
+    time.sleep(1)
     register_button.click()
     time.sleep(1)
     # Check user redirected to login page
