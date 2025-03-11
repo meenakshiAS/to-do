@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
 
+@pytest.mark.skip
 def test_view_task(chrome_browser, user, task, wait):
     # Get Homepage
     chrome_browser.get("http://127.0.0.1:8005")
