@@ -1,5 +1,0 @@
-export DJANGO_SETTINGS_MODULE="app.settings"
-export DJANGO_DEBUG="TRUE"
-export SECRET_KEY=""
-export ALLOWED_HOSTS=[]
-export COVERAGE="TRUE"

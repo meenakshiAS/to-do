@@ -1,7 +1,7 @@
 import time
 import uuid
-import pytest
 
+import pytest
 from selenium.webdriver.common.by import By
 
 
