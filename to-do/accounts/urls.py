@@ -8,12 +8,13 @@ app_name = "accounts"
 
 urlpatterns = [
     path("register/", views.register, name="register"),
-    path("login/", auth_views.LoginView.as_view(
-        template_name="accounts/login.html",
-        extra_context={
-            "title": "Login",
-            "form": LoginForm()
-        }
-    ), name="login"),
+    path(
+        "login/",
+        auth_views.LoginView.as_view(
+            template_name="accounts/login.html",
+            extra_context={"title": "Login", "form": LoginForm()},
+        ),
+        name="login",
+    ),
     path("logout/", auth_views.LogoutView.as_view(), name="logout"),
 ]

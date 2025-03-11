@@ -3,7 +3,8 @@ import time
 from selenium.webdriver.common.by import By
 
 
-def test_view_task(chrome_browser, user, task):
+# Integration test for delete task
+def test_delete_task(chrome_browser, user, task_2):
     # Get Homepage
     chrome_browser.get("http://127.0.0.1:8005")
     assert "Login" in chrome_browser.title
@@ -24,11 +25,13 @@ def test_view_task(chrome_browser, user, task):
     assert header_text == "Task List"
 
     # View individual task
-    card_link = chrome_browser.find_element(By.LINK_TEXT, "Brainstorming")
+    card_link = chrome_browser.find_element(By.LINK_TEXT, "Documentation")
     card_link.click()
     time.sleep(1)
-    page_heading = header_text = chrome_browser.find_element(By.TAG_NAME, "h2").text
-    assert page_heading == "Brainstorming"
+    # Delete the task
+    header_text = chrome_browser.find_element(By.LINK_TEXT, "Delete Task")
+    header_text.click()
+    time.sleep(1)
 
     # Logout user
     logout_button = chrome_browser.find_element(By.ID, "logout")

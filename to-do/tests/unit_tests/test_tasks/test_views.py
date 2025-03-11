@@ -10,6 +10,11 @@ def test_homepage(client):
 
 def test_create_task_view(user_client, task_form_valid):
     response = user_client.get("/create_task/")
-    assert response.status_code==200
+    assert response.status_code == 200
     response = user_client.post(reverse("tasks:create_task"), data=task_form_valid)
-    assert response.status_code==302
+    assert response.status_code == 302
+
+
+def test_delete_task(user_client, task_2):
+    response = user_client.get(reverse("tasks:delete_task", args=(task_2.id,)))
+    assert response.status_code == 302
