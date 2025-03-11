@@ -25,7 +25,7 @@
               </li>
               <form class="d-flex" action="{% url 'accounts:logout' %}">
                 {% csrf_token %}
-                <button class="nav-link" id="logout" type="submit">Logout</a>
+                <button class="nav-link" id="logout" type="submit" name="logout">Logout</a>
               </form>
               {% endif %}
               </ul>
