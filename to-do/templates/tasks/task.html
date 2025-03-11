@@ -10,7 +10,7 @@
         <h6 class="card-subtitle mb-2 text-body-secondary">{{ task.due_date }}</h6>
         <p class="card-text">{{ task.description }}</p>
         <p class="card-text">Task status is {% if task.completed %} completed {% else %} in progress. {% endif %}</p>
-        <a href="#" class="card-link">Edit task</a>
+        <a href="{% url 'tasks:update_task' task.id %}" class="card-link">Edit task</a>
         <a href="{% url 'tasks:delete_task' task.id %}">Delete Task</a>
     </div>
 </div>

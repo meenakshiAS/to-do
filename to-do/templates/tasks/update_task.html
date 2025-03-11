@@ -10,12 +10,11 @@
             {% endfor %}
         </ul>
    {% endif %}
-   <form class="container" method="post" action="{% url 'tasks:update_task' %}">
+   <form class="container" method="post" action="{% url 'tasks:update_task' task.id %}">
         {% csrf_token %}
         <div class="form-group mb-4">
             <h2 class="form-title">>{{ title }}</h2>
         </div>
-  
         {% for field in form %}
             <div class="form-group mb-4">
                 <label class="col-form-label">{{ field.label }}</label>

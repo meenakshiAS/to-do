@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
+from django.urls import reverse
 
 from tasks.forms import TaskForm
 
@@ -43,3 +44,20 @@ def view_task(request, id):
 def delete_task(request, id):
     Task.objects.filter(id=id).delete()
     return redirect("tasks:home")
+
+
+@login_required
+def update_task(request, id):
+    task = get_object_or_404(Task, id=id)
+    if request.method == "POST":
+        task_form = TaskForm(request.POST, instance=task)
+        if task_form.is_valid():
+            print("if part")
+            task_form.save()
+            return redirect(reverse("tasks:task", args=(id,)))
+    else:
+        task_form = TaskForm(instance=task)
+
+    return render(request, "tasks/update_task.html", {"title": "Update Task", "form": task_form, "task":task})
+
+   
