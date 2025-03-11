@@ -1,13 +1,26 @@
+import os
+import tempfile
 import pytest
+
 from django.contrib.auth.models import User
+
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+
 
 from tasks.models import Task
 
 
 @pytest.fixture
 def chrome_browser(live_server, transactional_db):
-    driver = webdriver.Chrome()
+    options = Options()
+    user_data_dir = tempfile.mkdtemp()
+    options.add_argument(f'--user-data-dir={user_data_dir}')
+    options.add_argument('--headless')  # Run in headless mode
+    options.add_argument('--disable-gpu')
+    options.add_argument('--no-sandbox')
+    driver = webdriver.Chrome(options=options)
     driver.server_url = live_server.url
     driver.implicitly_wait(10)
     yield driver
