@@ -5,15 +5,15 @@ import pytest
 from django.contrib.auth.models import User
 
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.support.ui import WebDriverWait 
 
 
 from tasks.models import Task
 
 
 @pytest.fixture
-def chrome_browser(live_server, transactional_db):
+def driver():
     options = Options()
     user_data_dir = tempfile.mkdtemp()
     options.add_argument(f'--user-data-dir={user_data_dir}')
@@ -21,6 +21,16 @@ def chrome_browser(live_server, transactional_db):
     options.add_argument('--disable-gpu')
     options.add_argument('--no-sandbox')
     driver = webdriver.Chrome(options=options)
+    return driver
+
+
+@pytest.fixture
+def wait(driver):
+    return WebDriverWait(driver, 10)
+
+
+@pytest.fixture
+def chrome_browser(driver, live_server, transactional_db):
     driver.server_url = live_server.url
     driver.implicitly_wait(10)
     yield driver

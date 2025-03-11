@@ -47,7 +47,7 @@ jobs:
         run: |
           cd to-do
           poetry run python manage.py migrate
-      - name: Run the automated tests (for example)
+      - name: Run Tests
         run: | 
           cd to-do
           poetry run pytest --cov-branch --cov-report=xml
