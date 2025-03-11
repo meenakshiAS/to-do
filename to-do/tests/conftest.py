@@ -1,13 +1,10 @@
-import os
 import tempfile
+
 import pytest
-
 from django.contrib.auth.models import User
-
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.support.ui import WebDriverWait 
-
+from selenium.webdriver.support.ui import WebDriverWait
 
 from tasks.models import Task
 
@@ -16,10 +13,10 @@ from tasks.models import Task
 def driver():
     options = Options()
     user_data_dir = tempfile.mkdtemp()
-    options.add_argument(f'--user-data-dir={user_data_dir}')
-    options.add_argument('--headless')  # Run in headless mode
-    options.add_argument('--disable-gpu')
-    options.add_argument('--no-sandbox')
+    options.add_argument(f"--user-data-dir={user_data_dir}")
+    options.add_argument("--headless")  # Run in headless mode
+    options.add_argument("--disable-gpu")
+    options.add_argument("--no-sandbox")
     driver = webdriver.Chrome(options=options)
     return driver
 

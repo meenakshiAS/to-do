@@ -11,6 +11,7 @@ class Task(models.Model):
 
     class Meta:
         """Metadata options for the Task model."""
+
         managed = True
 
     def __str__(self) -> str:
