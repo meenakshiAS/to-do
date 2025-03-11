@@ -5,7 +5,6 @@ import pytest
 from selenium.webdriver.common.by import By
 
 
-@pytest.mark.skip
 def test_register_user(chrome_browser, user):
     # Open the register page to test
     chrome_browser.get("http://127.0.0.1:8005/accounts/register")
