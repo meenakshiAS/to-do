@@ -1,4 +1,3 @@
-import time
 import pytest
 
 from selenium.webdriver.common.by import By
@@ -33,7 +32,6 @@ def test_delete_task(chrome_browser, wait, user, task_2):
     # Delete the task
     header_text = wait.until(EC.visibility_of_element_located((By.LINK_TEXT, "Delete Task")))
     header_text.click()
-    time.sleep(1)
 
     # Logout user
     logout_button = wait.until(EC.visibility_of_element_located((By.ID, "logout")))
