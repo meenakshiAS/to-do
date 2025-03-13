@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 
 
+# Integration Test for delete task functionality
 # @pytest.mark.skip
 def test_delete_task(chrome_browser, wait, user, task_2):
     """Integration test for delete task"""

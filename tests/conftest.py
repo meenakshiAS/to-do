@@ -9,6 +9,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from tasks.models import Task
 
 
+# Fixture for webdriver
 @pytest.fixture
 def driver():
     # Setup
@@ -36,6 +37,7 @@ def chrome_browser(driver, live_server, transactional_db):
     driver.quit()
 
 
+# Fixture to create user
 @pytest.fixture
 def user(db):
     """Fixture to create a user."""
@@ -51,6 +53,7 @@ def user(db):
     yield user
 
 
+# Fixture for logged in user
 @pytest.fixture
 def user_client(client, user):
     # Setup
@@ -59,6 +62,7 @@ def user_client(client, user):
     yield client
 
 
+# Fixture to create task 1
 @pytest.fixture
 def task(db, user):
     # Setup
@@ -73,6 +77,7 @@ def task(db, user):
     yield task
 
 
+# Fixture to create task 2
 @pytest.fixture
 def task_2(db, user):
     # Setup
@@ -87,6 +92,7 @@ def task_2(db, user):
     yield task
 
 
+# Fixture for create task valid form
 @pytest.fixture
 def task_form_valid(db, user):
     # Setup
@@ -101,6 +107,7 @@ def task_form_valid(db, user):
     yield data
 
 
+# Fixture to register a user with valid data
 @pytest.fixture
 def register_user_valid(db):
     """Fixture for registering a user"""
@@ -112,6 +119,23 @@ def register_user_valid(db):
         "last_name": "Doe",
         "password1": "abc",
         "password2": "abc",
+    }
+    # Teardown
+    yield form
+
+
+# Fixture to register a user with invalid data: mismatch password
+@pytest.fixture
+def register_user_invalid(db):
+    """Fixture for registering a user"""
+    # Setup
+    form = {
+        "username": "Jane",
+        "email": "jane@gmail.com",
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "password1": "abc",
+        "password2": "",
     }
     # Teardown
     yield form

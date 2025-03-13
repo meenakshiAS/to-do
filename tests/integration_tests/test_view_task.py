@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 
 
+# Integration Test for view task functionality
 # @pytest.mark.skip
 def test_view_task(chrome_browser, user, task, wait):
     # Get Homepage
