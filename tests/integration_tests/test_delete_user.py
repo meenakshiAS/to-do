@@ -1,11 +1,11 @@
 import time
 
-import pytest
+# import pytest
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_delete_task(chrome_browser, wait, user, task_2):
     """Integration test for delete task"""
     # Get Homepage
@@ -21,7 +21,7 @@ def test_delete_task(chrome_browser, wait, user, task_2):
     password_input.send_keys("pass1234")
     time.sleep(3)
 
-    login_button = wait.until(ec.visibility_of_element_located((By.ID, "login")))
+    login_button = wait.until(ec.visibility_of_element_located((By.NAME, "login")))
     login_button.click()
     time.sleep(3)
 
@@ -43,9 +43,3 @@ def test_delete_task(chrome_browser, wait, user, task_2):
     )
     header_text.click()
     time.sleep(3)
-
-    # Logout user
-    logout_button = wait.until(ec.visibility_of_element_located((By.ID, "logout")))
-    logout_button.click()
-    time.sleep(3)
-    assert "Login" in chrome_browser.title

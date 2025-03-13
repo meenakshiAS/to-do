@@ -1,13 +1,13 @@
 import time
 import uuid
 
-import pytest
+# import pytest
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as ec
 
 
-@pytest.mark.skip
+# @pytest.mark.skip
 def test_register_user(chrome_browser, wait, user):
     # Open the register page to test
     chrome_browser.get("http://127.0.0.1:8005/accounts/register")
