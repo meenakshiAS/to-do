@@ -18,3 +18,9 @@ def test_create_task_view(user_client, task_form_valid):
 def test_delete_task(user_client, task_2):
     response = user_client.get(reverse("tasks:delete_task", args=(task_2.id,)))
     assert response.status_code == 302
+
+
+def test_update_task(user_client, task_2):
+    response = user_client.get(reverse("tasks:update_task", args=(task_2.id,)))
+    assert response.status_code == 200
+
