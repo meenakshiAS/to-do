@@ -20,7 +20,7 @@ def test_view_task(chrome_browser, user, task, wait):
     password_input.send_keys("pass1234")
     time.sleep(3)
 
-    login_button = wait.until(ec.visibility_of_element_located((By.NAME, "login")))
+    login_button = wait.until(ec.visibility_of_element_located((By.ID, "login")))
     login_button.click()
     time.sleep(3)
 
@@ -43,7 +43,7 @@ def test_view_task(chrome_browser, user, task, wait):
     time.sleep(20)
 
     # Logout user
-    logout_button = wait.until(ec.visibility_of_element_located((By.NAME, "logout")))
+    logout_button = wait.until(ec.visibility_of_element_located((By.ID, "logout")))
     logout_button.click()
     time.sleep(3)
 
