@@ -40,7 +40,7 @@ def test_view_task(chrome_browser, user, task, wait):
         ec.visibility_of_element_located((By.TAG_NAME, "h2"))
     ).text
     assert page_heading == "Brainstorming"
-    time.sleep(20)
+    time.sleep(3)
 
     # Logout user
     logout_button = wait.until(ec.visibility_of_element_located((By.ID, "logout")))
