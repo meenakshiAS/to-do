@@ -20,7 +20,13 @@ def test_delete_task(user_client, task_2):
     assert response.status_code == 302
 
 
-def test_update_task(user_client, task_2):
+def test_update_task_get(user_client, task_2):
     response = user_client.get(reverse("tasks:update_task", args=(task_2.id,)))
     assert response.status_code == 200
 
+
+def test_update_task_post(user_client, task_2, task_form_valid):
+    response = user_client.post(
+        reverse("tasks:update_task", args=(task_2.id,)), data=task_form_valid
+    )
+    assert response.status_code == 302

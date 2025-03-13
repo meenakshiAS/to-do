@@ -52,11 +52,13 @@ def update_task(request, id):
     if request.method == "POST":
         task_form = TaskForm(request.POST, instance=task)
         if task_form.is_valid():
-            print("if part")
             task_form.save()
             return redirect(reverse("tasks:task", args=(id,)))
     else:
         task_form = TaskForm(instance=task)
 
-    return render(request, "tasks/update_task.html", {"title": "Update Task", "form": task_form, "task":task})
-
+    return render(
+        request,
+        "tasks/update_task.html",
+        {"title": "Update Task", "form": task_form, "task": task},
+    )
