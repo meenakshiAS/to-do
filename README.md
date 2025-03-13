@@ -72,9 +72,12 @@ being pushed to GitHub:
 ## Testing your setup
 With your virtual environment activated, run the following commands:
 
-To run tests:
+To run all tests:
 
 ```pytest``` or ```coverage run pytest```
+To run individual test files provide the whole path of the test file following the pytest command. For example:
+
+```pytest tests/unit_tests/test_tasks/test_views.py```
 
 
 To see if your development server is set up correctly:
