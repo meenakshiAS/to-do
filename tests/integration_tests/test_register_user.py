@@ -7,6 +7,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as ec
 
 
+# Integration Test for register user functionality
 # @pytest.mark.skip
 def test_register_user(chrome_browser, wait, user):
     # Open the register page to test
