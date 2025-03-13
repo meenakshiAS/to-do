@@ -122,3 +122,20 @@ def register_user_valid(db):
     }
     # Teardown
     yield form
+
+
+# Fixture to register a user with invalid data: mismatch password
+@pytest.fixture
+def register_user_invalid(db):
+    """Fixture for registering a user"""
+    # Setup
+    form = {
+        "username": "Jane",
+        "email": "jane@gmail.com",
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "password1": "abc",
+        "password2": "",
+    }
+    # Teardown
+    yield form
