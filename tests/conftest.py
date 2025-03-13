@@ -11,6 +11,7 @@ from tasks.models import Task
 
 @pytest.fixture
 def driver():
+    # Setup
     options = Options()
     user_data_dir = tempfile.mkdtemp()
     options.add_argument(f"--user-data-dir={user_data_dir}")
@@ -18,6 +19,7 @@ def driver():
     options.add_argument("--disable-gpu")
     options.add_argument("--no-sandbox")
     driver = webdriver.Chrome(options=options)
+    # Teardown
     return driver
 
 
@@ -37,6 +39,7 @@ def chrome_browser(driver, live_server, transactional_db):
 @pytest.fixture
 def user(db):
     """Fixture to create a user."""
+    # Setup
     user = User.objects.create_user(
         username="carl",
         email="carl@test.com",
@@ -44,17 +47,21 @@ def user(db):
         last_name="Doe",
         password="pass1234",
     )
-    return user
+    # Teardown
+    yield user
 
 
 @pytest.fixture
 def user_client(client, user):
+    # Setup
     client.force_login(user)
-    return client
+    # Teardown
+    yield client
 
 
 @pytest.fixture
 def task(db, user):
+    # Setup
     task = Task.objects.create(
         user=user,
         title="Brainstorming",
@@ -62,11 +69,13 @@ def task(db, user):
         due_date="2025-03-01",
         completed=False,
     )
-    return task
+    # Teardown
+    yield task
 
 
 @pytest.fixture
 def task_2(db, user):
+    # Setup
     task = Task.objects.create(
         user=user,
         title="Documentation",
@@ -74,23 +83,28 @@ def task_2(db, user):
         due_date="2025-03-01",
         completed=False,
     )
-    return task
+    # Teardown
+    yield task
 
 
 @pytest.fixture
 def task_form_valid(db, user):
-    return {
+    # Setup
+    data = {
         "user": user.id,
         "title": "Brainstorming",
         "description": "A to do app.",
         "due_date": "2025-03-01",
         "completed": False,
     }
+    # Teardown
+    yield data
 
 
 @pytest.fixture
 def register_user_valid(db):
     """Fixture for registering a user"""
+    # Setup
     form = {
         "username": "Jane",
         "email": "jane@gmail.com",
@@ -99,4 +113,5 @@ def register_user_valid(db):
         "password1": "abc",
         "password2": "abc",
     }
-    return form
+    # Teardown
+    yield form
