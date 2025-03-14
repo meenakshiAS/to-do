@@ -139,3 +139,45 @@ def register_user_invalid(db):
     }
     # Teardown
     yield form
+
+
+# Fixture for create task invalid form : missing title
+@pytest.fixture
+def task_form_missing_title(db, user):
+    # Setup
+    data = {
+        "user": user.id,
+        "description": "A to do app.",
+        "due_date": "2025-03-01",
+        "completed": False,
+    }
+    # Teardown
+    yield data
+
+
+# Fixture for create task invalid form : missing description
+@pytest.fixture
+def task_form_missing_description(db, user):
+    # Setup
+    data = {
+        "user": user.id,
+        "title": "Task Testing",
+        "due_date": "2025-03-01",
+        "completed": False,
+    }
+    # Teardown
+    yield data
+
+
+# Fixture for create task invalid form : missing due date
+@pytest.fixture
+def task_form_missing_due_date(db, user):
+    # Setup
+    data = {
+        "user": user.id,
+        "title": "Task Testing",
+        "description": "This is for testing task",
+        "completed": False,
+    }
+    # Teardown
+    yield data
