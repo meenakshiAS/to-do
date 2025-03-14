@@ -13,7 +13,7 @@
    <form class="container" method="post" action="{% url 'tasks:create_task' %}">
         {% csrf_token %}
         <div class="form-group mb-4">
-            <h2 class="form-title">>{{ title }}</h2>
+            <h2 class="form-title">{{ title }}</h2>
         </div>
 
         {% for field in form %}
@@ -40,7 +40,6 @@
 
         <div class="d-grid gap-2 d-md-block">
             <button class="btn btn-primary" type="submit">Create</button>
-            <button class="btn btn-primary" type="button">Clear</button>
         </div>
     </form>
 </div>
